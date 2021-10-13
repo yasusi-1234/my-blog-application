@@ -13,4 +13,9 @@ public class MyBlogController {
     public String getHome(Model model){
         return "home/home";
     }
+
+    @GetMapping("create")
+    public String getCreate(Model model){
+        return "create/create";
+    }
 }
