@@ -5,9 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.12.0/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/easymde/2.15.0/dist/easymde.min.css}">
     <title>Document</title>
 </head>
 <body>
 <h1>My Blog Home</h1>
+<div>
+    <form action="#">
+        <textarea id="contents"></textarea>
+    </form>
+</div>
+
+<script th:src="@{/webjars/easymde/2.15.0/dist/easymde.min.js}"></script>
+<script>
+    const contents = new EasyMDE({
+        autoDownloadFontAwesome: false,
+        showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule'],
+        element: document.getElementById('contents'),
+        initialValue: '## Toolbar \n Here you can see all the buttons available for the toolbar.'
+    });
+</script>
 </body>
 </html>
