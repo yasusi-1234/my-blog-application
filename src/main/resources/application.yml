@@ -1,0 +1,71 @@
+spring:
+  # sql settings
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_blog?autoReconnect=true&useSSL=false&rewriteBatchedStatements=true
+    username: sample
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    sql-script-encoding: utf-8
+  # flyway settings
+  flyway:
+    enabled: true
+    url: jdbc:mysql://localhost:3306/my_blog?autoReconnect=true&useSSL=false&rewriteBatchedStatements=true
+    user: sample
+    password:
+    baseline-on-migrate: true
+    baseline-version: 1
+    baseline-description: Initial
+    locations: classpath:db/migration
+
+  # thymeleaf
+  thymeleaf:
+    encoding: utf-8
+
+  # messages settings
+  messages:
+    basename: messages
+
+  # servlet settings
+  servlet:
+    multipart:
+      max-file-size: 500KB
+      max-request-size: 1MB
+
+# jpa settings
+  jap:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: true
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 100
+
+# logger settings
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          EnumType: trace
+          descriptor:
+            sql:
+              BasicBinder: trace
+
+#  spring.jpa.database=mysql
+#  spring.jpa.hibernate.ddl-auto=validate
+#  spring.jpa.show-sql=true
+#
+#  spring.jpa.properties.hibernate.format_sql=true
+#  spring.jpa.properties.hibernate.jdbc.batch_size=1000
+#  spring.jpa.properties.hibernate.order_inserts=true
+#  spring.jpa.properties.hibernate.order_updates = true
+#  spring.jpa.properties.hibernate.jdbc.batch_versioned_data = true
+#
+#  logging.level.org.hibernate.SQL=info
+#  logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+#
+#  logging.pattern.level=%5p USER_ID:%X{USER_ID} SESSION_ID:%X{SESSION_ID} TRACE_ID:%X{traceId}
